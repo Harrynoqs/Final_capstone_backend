@@ -1,45 +1,65 @@
-require "test_helper"
+require 'test_helper'
 
 class DoctorsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @doctor = doctors(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get doctors_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_doctor_url
     assert_response :success
   end
 
-  test "should create doctor" do
-    assert_difference("Doctor.count") do
-      post doctors_url, params: { doctor: { book-date: @doctor.book-date, book_price: @doctor.book_price, description: @doctor.description, doctor-type: @doctor.doctor-type, image_url: @doctor.image_url, name: @doctor.name } }
+  test 'should create doctor' do
+    assert_difference('Doctor.count') do
+      post doctors_url,
+           params: {
+             doctor: {
+               'book_date' => @doctor.book_date,
+               'book_price' => @doctor.book_price,
+               'description' => @doctor.description,
+               'doctor_type' => @doctor.doctor_type,
+               'image_url' => @doctor.image_url,
+               'name' => @doctor.name
+             }
+           }
     end
 
     assert_redirected_to doctor_url(Doctor.last)
   end
 
-  test "should show doctor" do
+  test 'should show doctor' do
     get doctor_url(@doctor)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_doctor_url(@doctor)
     assert_response :success
   end
 
-  test "should update doctor" do
-    patch doctor_url(@doctor), params: { doctor: { book-date: @doctor.book-date, book_price: @doctor.book_price, description: @doctor.description, doctor-type: @doctor.doctor-type, image_url: @doctor.image_url, name: @doctor.name } }
+  test 'should update doctor' do
+    patch doctor_url(@doctor),
+          params: {
+            doctor: {
+              'book_date' => @doctor.book_date,
+              'book_price' => @doctor.book_price,
+              'description' => @doctor.description,
+              'doctor_type' => @doctor.doctor_type,
+              'image_url' => @doctor.image_url,
+              'name' => @doctor.name
+            }
+          }
     assert_redirected_to doctor_url(@doctor)
   end
 
-  test "should destroy doctor" do
-    assert_difference("Doctor.count", -1) do
+  test 'should destroy doctor' do
+    assert_difference('Doctor.count', -1) do
       delete doctor_url(@doctor)
     end
 
