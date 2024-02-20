@@ -1,4 +1,5 @@
-#!/usr/bin/env ruby
+!/usr/bin/env ruby
 
 require_relative '../config/application'
-require 'importmap/commands'
+Create the users, items, reservations tables and models
+Add validations to the modelsrequire 'importmap/commands'
