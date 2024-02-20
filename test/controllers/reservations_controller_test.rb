@@ -18,8 +18,14 @@ class ReservationsControllerTest < ActionDispatch::IntegrationTest
   test 'should create reservation' do
     assert_difference('Reservation.count') do
       post reservations_url,
-           params: { reservation: { city: @reservation.city, date_of_reservation: @reservation.date_of_reservation, duration_of_booking: @reservation.duration_of_booking,
-                                    integer: @reservation.integer } }
+           params: {
+             reservation: {
+               city: @reservation.city,
+               date_of_reservation: @reservation.date_of_reservation,
+               duration_of_booking: @reservation.duration_of_booking,
+               integer: @reservation.integer
+             }
+           }
     end
 
     assert_redirected_to reservation_url(Reservation.last)
@@ -37,8 +43,14 @@ class ReservationsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should update reservation' do
     patch reservation_url(@reservation),
-          params: { reservation: { city: @reservation.city, date_of_reservation: @reservation.date_of_reservation, duration_of_booking: @reservation.duration_of_booking,
-                                   integer: @reservation.integer } }
+          params: {
+            reservation: {
+              city: @reservation.city,
+              date_of_reservation: @reservation.date_of_reservation,
+              duration_of_booking: @reservation.duration_of_booking,
+              integer: @reservation.integer
+            }
+          }
     assert_redirected_to reservation_url(@reservation)
   end
 
