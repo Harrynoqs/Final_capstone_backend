@@ -62,15 +62,16 @@ Ruby on Rails, Visual Studia Code, WSL
 In order to use this project.. Clone this repository to your desired folder by pasting this command in your command line interface:
 
 ```
-  git clone
+  git clone https://github.com/Harrynoqs/Final_capstone_backend.git
 ```
   
   You can also clone the front-end project using the following command:
 
 ```  
-  git clone 
-To install the project's dependencies, run:
+  git clone https://github.com/Harrynoqs/Final_capstone_frontend.git
 
+```
+To install the project's dependencies, run:
 ```
   bundle install
   rails db:create
@@ -103,7 +104,7 @@ Front-end project [link]().
 
 - GitHub: [@Harrynoqs](https://github.com/Harrynoqs)
 - GitHub: [@WMNisarAli](https://github.com/MNisarAli)
-- GitHub: [@Ebinyamolango](https://github.com/Bbinyamolango)
+- GitHub: [@binyamolango](https://github.com/binyamolango)
 
 
 ## 🔭 Future Features <a name="future-features"></a>
