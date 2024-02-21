@@ -4,6 +4,6 @@ class Doctor < ApplicationRecord
 
   validates :name, presence: true
   validates :image_url, presence: true
-  validates :doctor - type, presence: true
+  validates :doctor_type, presence: true
   validates :city, presence: true
 end

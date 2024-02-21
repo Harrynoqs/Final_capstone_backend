@@ -1,11 +1,9 @@
 class User < ApplicationRecord
-  has_secure_password
 
   has_many :reservations, dependent: :destroy
   has_many :doctors, through: :reservations
 
   validates :username, presence: true, uniqueness: true
-  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   def generate_jwt
     JWT.encode({ id:, exp: 365.day.from_now.to_i }, Rails.application.secret_key_base)
