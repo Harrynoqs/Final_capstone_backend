@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '3.2.2'
+ruby '3.3.0'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.3'
@@ -29,11 +29,15 @@ gem 'jbuilder'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
+# gem 'railties', '~> 5.0', '>= 5.0.0.1'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+ gem "bcrypt", "~> 3.1.7"
+
+ gem 'jwt'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[windows jruby]
@@ -41,12 +45,23 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+gem 'rswag'
+
+gem 'rswag-api'
+
+gem 'rswag-ui'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
+  gem 'rswag-specs'
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -65,3 +80,11 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
 end
+
+gem 'rubocop', '>= 1.0', '< 2.0'
+
+gem 'faker'
+
+gem 'rack-cors', require: 'rack/cors'
+
+gem 'dotenv-rails', groups: [:development, :test]

@@ -1,9 +1,9 @@
 class Doctor < ApplicationRecord
-  has_many :reservations, dependent: :destroy
-  has_many :users, through: :reservations
+  # has_many :reservations, dependent: :destroy
+  # has_many :users, through: :reservations
 
-  validates :name, presence: true
-  validates :image_url, presence: true
-  validates :doctor_type, presence: true
-  validates :city, presence: true
+  # validates :name, presence: true
+  # validates :image_url, presence: true
+  # validates :doctor_type, presence: true
+  # validates :city, presence: true
 end
