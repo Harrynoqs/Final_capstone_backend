@@ -1,11 +1,11 @@
 class Api::V1::ReservationsController < ApplicationController
   def index
-    @reservations = @current_user.reservations
+    @reservations = Reservation.all
     render json: @reservations
   end
 
   def create
-    @reservation = reservation.new(reservation_params.merge(user: @current_user))
+    @reservation = reservation.new(reservation_params)
 
     if @reservation.save
       render json: @reservation, status: :created
@@ -15,12 +15,12 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def show
-    @reservation = @current_user.reservations.find(params[:id])
+    @reservation = Reservation.find(params[:id])
     render json: @reservation
   end
 
   def destroy
-    @reservation = @current_user.reservations.find(params[:id])
+    @reservation = Reservation.find(params[:id])
     @reservation.destroy
     render json: { message: 'reservation deleted successfully.' }
   end
@@ -28,6 +28,6 @@ class Api::V1::ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:reservation_time, :doctor_id)
+    params.require(:reservation).permit(:date_of_reservation)
   end
 end
