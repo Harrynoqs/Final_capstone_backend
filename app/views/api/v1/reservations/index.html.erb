@@ -6,9 +6,12 @@
   <% @reservations.each do |reservation| %>
     <%= render reservation %>
     <p>
-      <%= link_to "Show this reservation", reservation %>
+      <%#= link_to "Show this reservation", reservation %>
     </p>
   <% end %>
+  <%= form_with(url: api_v1_reservations_path, method: :post) do |form| %>
+  <%= form.submit "New reservation" %>
+<% end %>
 </div>
 
-<%= link_to "New reservation", new_reservation_path %>
+<%#= link_to "New reservation", new_reservation_path %>
