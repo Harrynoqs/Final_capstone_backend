@@ -17,20 +17,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_20_094427) do
   create_table "doctors", force: :cascade do |t|
     t.string "name"
     t.string "doctor_type"
-    t.text "description"
     t.string "image_url"
-    t.decimal "book_price"
-    t.date "book_date"
+    t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.string "city"
-    t.integer "duration_of_booking"
     t.date "date_of_reservation"
+    t.bigint "user_id", null: false
+    t.bigint "doctor_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["doctor_id"], name: "index_reservations_on_doctor_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,4 +39,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_20_094427) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "reservations", "doctors"
+  add_foreign_key "reservations", "users"
 end
