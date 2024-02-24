@@ -1,17 +1,25 @@
 <div id="<%= dom_id reservation %>">
   <p>
+    <strong>Patient:</strong>
+    <%= reservation.user_name %>
+  </p>
+<p>
+    <strong>Doctor:</strong>
+    <%= reservation.doctor_name %>
+  </p>
+  <p>
     <strong>City:</strong>
     <%= reservation.city %>
   </p>
 
   <p>
     <strong>Duration of booking:</strong>
-    <%= reservation.duration_of_booking %>
+    <%= reservation.duration_of_booking %> hours
   </p>
 
   <p>
-    <strong>Date of reservation:</strong>
+    <strong>Date:</strong>
     <%= reservation.date_of_reservation %>
   </p>
-
+  <p>=============================================================</p>
 </div>

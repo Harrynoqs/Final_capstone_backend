@@ -1,4 +1,5 @@
 class Api::V1::ReservationsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_reservation, only: %i[show edit update destroy]
 
   # GET /reservations or /reservations.json
@@ -23,7 +24,7 @@ class Api::V1::ReservationsController < ApplicationController
 
     respond_to do |format|
       if @reservation.save
-        format.html { redirect_to reservation_url(@reservation), notice: 'Reservation was successfully created.' }
+        format.html { redirect_to api_v1_reservations_path(@reservation), notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -36,7 +37,7 @@ class Api::V1::ReservationsController < ApplicationController
   def update
     respond_to do |format|
       if @reservation.update(reservation_params)
-        format.html { redirect_to reservation_url(@reservation), notice: 'Reservation was successfully updated.' }
+        format.html { redirect_to api_v1_reservations_path(@reservation), notice: 'Reservation was successfully updated.' }
         format.json { render :show, status: :ok, location: @reservation }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,7 +51,7 @@ class Api::V1::ReservationsController < ApplicationController
     @reservation.destroy!
 
     respond_to do |format|
-      format.html { redirect_to reservations_url, notice: 'Reservation was successfully destroyed.' }
+      format.html { redirect_to api_v1_reservations_path, notice: 'Reservation was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,6 +65,6 @@ class Api::V1::ReservationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def reservation_params
-    params.require(:reservation).permit(:city, :duration_of_booking, :date_of_reservation)
+    params.require(:reservation).permit(:city, :duration_of_booking, :date_of_reservation, :doctor_id, :user_id)
   end
 end
