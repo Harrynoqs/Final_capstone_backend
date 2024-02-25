@@ -88,3 +88,5 @@ gem 'faker'
 gem 'rack-cors', require: 'rack/cors'
 
 gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'rspec_api_documentation'
